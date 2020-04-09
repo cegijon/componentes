@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Formulario from './components/Formulario';
 
-function App() {
+const App = () => {
+  const [alumnas, setAlumnas] = useState(["Lili", "Nil", "Noe", "Celina", "Tefi"])
+  const [alumnaNueva, setAlumnaNueva] = useState("")
+
+  const funcionDelPadre = parametros => {
+    setAlumnaNueva(parametros)
+  }
+
+  const funcionDelPadreSubmit = () => {
+    const arrayNuevo = [...alumnas]
+    arrayNuevo.push(alumnaNueva)
+    setAlumnas(arrayNuevo)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {alumnas.map(alumna => <p>{alumna}</p>)}
+      <Formulario funcionDelPadre={funcionDelPadre} funcionDelPadreSubmit={funcionDelPadreSubmit} />
     </div>
   );
 }
