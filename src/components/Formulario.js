@@ -1,15 +1,6 @@
 import React from 'react';
 
-const Formulario = ({ funcionDelPadre, funcionDelPadreSubmit }) => {
-
-  const handleChange = e => {
-    funcionDelPadre(e.target.value)
-  }
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    funcionDelPadreSubmit()
-  }
+const Formulario = ({ handleChange, handleSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit}>
@@ -18,5 +9,4 @@ const Formulario = ({ funcionDelPadre, funcionDelPadreSubmit }) => {
   )
 }
 
-
-export default Formulario
+export default Formulario;
