@@ -6,11 +6,12 @@ const App = () => {
   const [alumnas, setAlumnas] = useState(["Lili", "Nil", "Noe", "Celina", "Tefi"])
   const [alumnaNueva, setAlumnaNueva] = useState("")
 
-  const handleChange = e => {
-    setAlumnaNueva(e.target.value)
+  const handleChange = evento => {
+    setAlumnaNueva(evento.target.value)
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = e => {
+    e.preventDefault()
     const arrayNuevo = [...alumnas]
     arrayNuevo.push(alumnaNueva)
     setAlumnas(arrayNuevo)
